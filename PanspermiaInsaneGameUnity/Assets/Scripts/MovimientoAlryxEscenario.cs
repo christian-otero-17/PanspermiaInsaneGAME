@@ -4,20 +4,40 @@ using UnityEngine;
 
 public class MovimientoAlryxEscenario : MonoBehaviour
 {
+    //Personaje Movimiento
     public float velocidadMovimiento = 5.0f;
     public float velocidadRotacion = 200.0f;
     private Animator anim;
     public float x, y;
 
+    //CORRER
+    public int velCorrer;
+
+    //Caida mas rapida
+    public int fuerzaExtra = 0;
+
+    //Personaje Saltando
     public Rigidbody rb;
     public float fuerzaSalto = 8f;
     public bool puedoSaltar;
+    public float velocidadInicial;
+    public float velocidadAgachado;
+
+    //CAMBIO DE COLLIDER AGACHADO
+    public CapsuleCollider colParado;
+    public CapsuleCollider colAgachado;
+    public GameObject cabeza;
+    public LogicaCabeza logicaCabeza;
+    public bool estoyAgachado;
 
     // Start is called before the first frame update
     void Start()
     {
         puedoSaltar = false;
         anim = GetComponent<Animator>();
+
+        velocidadInicial = velocidadMovimiento;
+        velocidadAgachado = velocidadMovimiento * 0.5f;
     }
     void FixedUpdate()
     {
@@ -27,6 +47,31 @@ public class MovimientoAlryxEscenario : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetKey(KeyCode.F)&& !estoyAgachado && puedoSaltar)
+        {
+            velocidadMovimiento = velCorrer;
+            if (y > 0)
+            {
+                anim.SetBool("Correr", true);
+            }
+            else
+            {
+                anim.SetBool("Correr", false);
+            }
+        }
+        else
+        {
+            anim.SetBool("Correr", false);
+            if (estoyAgachado)
+            {
+                velocidadMovimiento = velocidadAgachado;
+            }else if (puedoSaltar)
+            {
+                velocidadMovimiento = velocidadInicial;
+            }
+
+        }
+
         x = Input.GetAxis("Horizontal");
         y = Input.GetAxis("Vertical");
 
@@ -42,6 +87,38 @@ public class MovimientoAlryxEscenario : MonoBehaviour
                 anim.SetBool("Salte", true);
                 rb.AddForce(new Vector3(0, fuerzaSalto, 0), ForceMode.Impulse);
             }
+
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                anim.SetBool("Agachado", true);
+               // velocidadMovimiento = velocidadAgachado;
+
+                /////CAMBIO DE COLLIDER//////////
+
+                colAgachado.enabled = true;
+                colParado.enabled = false;
+
+                cabeza.SetActive(true);
+                estoyAgachado = true;
+
+                ////////////////////////////
+            }
+            else
+            {
+                if(logicaCabeza.contadorDeColision <= 0)
+                {
+                    anim.SetBool("Agachado", false);
+                  //  velocidadMovimiento = velocidadInicial;
+
+                    ////// CAMBIO COLLIDER //////
+                    cabeza.SetActive(false);
+                    colAgachado.enabled = false;
+                    colParado.enabled = true;
+                    estoyAgachado = false;
+
+                }
+                
+            }
             anim.SetBool("TocoSuelo", true);
         }
         else
@@ -52,6 +129,9 @@ public class MovimientoAlryxEscenario : MonoBehaviour
     }
     public void EstoyCayendo()
     {
+        //CAER MAS RAPIDO
+        rb.AddForce(fuerzaExtra * Physics.gravity);
+
         anim.SetBool("TocoSuelo", false);
         anim.SetBool("Salte", false);
     }
