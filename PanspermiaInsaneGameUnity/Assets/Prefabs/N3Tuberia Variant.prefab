@@ -1,0 +1,207 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &1034324504764081822
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 8369852826000436905}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 2994402e039829349a6c2565b4436d72,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 292.34134
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2994402e039829349a6c2565b4436d72,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 318.40363
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2994402e039829349a6c2565b4436d72,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 760.16785
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2994402e039829349a6c2565b4436d72,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2994402e039829349a6c2565b4436d72,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2994402e039829349a6c2565b4436d72,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2994402e039829349a6c2565b4436d72,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.00000006883939
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2994402e039829349a6c2565b4436d72,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2994402e039829349a6c2565b4436d72,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.70710677
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2994402e039829349a6c2565b4436d72,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.000000037930764
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2994402e039829349a6c2565b4436d72,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2994402e039829349a6c2565b4436d72,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2994402e039829349a6c2565b4436d72,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2994402e039829349a6c2565b4436d72,
+        type: 3}
+      propertyPath: m_Name
+      value: N3Tuberia
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2994402e039829349a6c2565b4436d72,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 758118409093538638}
+  m_SourcePrefab: {fileID: 100100000, guid: 2994402e039829349a6c2565b4436d72, type: 3}
+--- !u!1 &187956538474552271 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 2994402e039829349a6c2565b4436d72,
+    type: 3}
+  m_PrefabInstance: {fileID: 1034324504764081822}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &758118409093538638
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 187956538474552271}
+  m_Material: {fileID: 13400000, guid: c930dcf7977b305479b8daad6e29a0f5, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -153830957423991239, guid: 2994402e039829349a6c2565b4436d72, type: 3}
+--- !u!4 &707084749336510837 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2994402e039829349a6c2565b4436d72,
+    type: 3}
+  m_PrefabInstance: {fileID: 1034324504764081822}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1630218776033518081
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2590844391782290172, guid: 8a4526e22e1881543a9adf4981b5ea67,
+        type: 3}
+      propertyPath: m_Name
+      value: N3Tuberia Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 7113439572191104168, guid: 8a4526e22e1881543a9adf4981b5ea67,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7113439572191104168, guid: 8a4526e22e1881543a9adf4981b5ea67,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7113439572191104168, guid: 8a4526e22e1881543a9adf4981b5ea67,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7113439572191104168, guid: 8a4526e22e1881543a9adf4981b5ea67,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7113439572191104168, guid: 8a4526e22e1881543a9adf4981b5ea67,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7113439572191104168, guid: 8a4526e22e1881543a9adf4981b5ea67,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7113439572191104168, guid: 8a4526e22e1881543a9adf4981b5ea67,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7113439572191104168, guid: 8a4526e22e1881543a9adf4981b5ea67,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7113439572191104168, guid: 8a4526e22e1881543a9adf4981b5ea67,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7113439572191104168, guid: 8a4526e22e1881543a9adf4981b5ea67,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7695001430789274018, guid: 8a4526e22e1881543a9adf4981b5ea67,
+        type: 3}
+      propertyPath: m_Name
+      value: Tuberia
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects:
+    - {fileID: 7695001430789274018, guid: 8a4526e22e1881543a9adf4981b5ea67, type: 3}
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 7113439572191104168, guid: 8a4526e22e1881543a9adf4981b5ea67,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 707084749336510837}
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8a4526e22e1881543a9adf4981b5ea67, type: 3}
+--- !u!4 &8369852826000436905 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7113439572191104168, guid: 8a4526e22e1881543a9adf4981b5ea67,
+    type: 3}
+  m_PrefabInstance: {fileID: 1630218776033518081}
+  m_PrefabAsset: {fileID: 0}
