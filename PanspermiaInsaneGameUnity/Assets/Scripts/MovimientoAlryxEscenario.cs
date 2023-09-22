@@ -1,9 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class MovimientoAlryxEscenario : MonoBehaviour
 {
+    //CAIDA AL VACIO REINICIAR
+
+    float xInicial, yInicial, zInicial;
+
     //Personaje Movimiento
     public float velocidadMovimiento = 5.0f;
     public float velocidadRotacion = 200.0f;
@@ -33,6 +38,14 @@ public class MovimientoAlryxEscenario : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //REINICIO DE POSICIÓN CON CAIDA AL VACIO
+
+        xInicial = transform.position.x;
+        yInicial = transform.position.y;
+        zInicial = transform.position.z;
+
+        //////////////////////////////
+
         puedoSaltar = false;
         anim = GetComponent<Animator>();
 
@@ -47,7 +60,8 @@ public class MovimientoAlryxEscenario : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(KeyCode.F)&& !estoyAgachado && puedoSaltar)
+
+        if (Input.GetKey(KeyCode.LeftShift)&& !estoyAgachado && puedoSaltar)
         {
             velocidadMovimiento = velCorrer;
             if (y > 0)
@@ -88,7 +102,7 @@ public class MovimientoAlryxEscenario : MonoBehaviour
                 rb.AddForce(new Vector3(0, fuerzaSalto, 0), ForceMode.Impulse);
             }
 
-            if (Input.GetKey(KeyCode.LeftShift))
+            if (Input.GetKey(KeyCode.LeftAlt))
             {
                 anim.SetBool("Agachado", true);
                // velocidadMovimiento = velocidadAgachado;
@@ -134,5 +148,18 @@ public class MovimientoAlryxEscenario : MonoBehaviour
 
         anim.SetBool("TocoSuelo", false);
         anim.SetBool("Salte", false);
+    }
+
+    public void RecolocarPersonaje()
+    {
+        transform.position = new Vector3(xInicial, yInicial, zInicial);
+    }
+
+    private void OnTriggerEnter(Collider coll)
+    {
+        if (coll.CompareTag("Puño"))
+        {
+            print("*******DAÑOOOOO*******");
+        }
     }
 }

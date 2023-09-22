@@ -35,7 +35,7 @@ namespace DigitalRuby.Earth
         {
             meshRenderer = GetComponent<MeshRenderer>();
             materialBlock = new MaterialPropertyBlock();
-            Sun = (Sun == null ? Light.GetLights(LightType.Directional, -1)[0] : Sun);
+          
             if (Axis == Vector3.zero)
             {
                 Axis = transform.up;
