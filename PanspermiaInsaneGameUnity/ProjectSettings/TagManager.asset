@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - "Pu\xF1o"
+  - Field
+  - Campo
+  - Power
+  - Arma
   layers:
   - Default
   - TransparentFX

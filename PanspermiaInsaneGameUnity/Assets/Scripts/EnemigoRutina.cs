@@ -86,4 +86,12 @@ public class EnemigoRutina : MonoBehaviour
         anim.SetBool("Attack", false);
         atacando = false;
     }
+
+    private void OnTriggerEnter(Collider coll)
+    {
+        if (coll.CompareTag("Campo"))
+        {
+            print("*******ENEMIGO MUERTO *******");
+        }
+    }
 }

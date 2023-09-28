@@ -8,6 +8,11 @@ public class MovimientoAlryxEscenario : MonoBehaviour
     //CAIDA AL VACIO REINICIAR
 
     float xInicial, yInicial, zInicial;
+    //DISPARO CON ARMAS
+    public bool shooting;
+
+    //AnimacionesArmas
+    public TomarArmas tomarArmas;
 
     //Personaje Movimiento
     public float velocidadMovimiento = 5.0f;
@@ -47,6 +52,7 @@ public class MovimientoAlryxEscenario : MonoBehaviour
         //////////////////////////////
 
         puedoSaltar = false;
+
         anim = GetComponent<Animator>();
 
         velocidadInicial = velocidadMovimiento;
@@ -140,7 +146,24 @@ public class MovimientoAlryxEscenario : MonoBehaviour
             EstoyCayendo();
         }
 
+
+        if(tomarArmas.estoyarmado == true)
+        {
+            if (Input.GetKey(KeyCode.Mouse0))
+              {
+                anim.SetBool("Disparando", true);
+            }
+            else
+            {
+                anim.SetBool("Disparando", false);
+            }
+        }
     }
+
+
+    //TERMINA UPDATE
+
+
     public void EstoyCayendo()
     {
         //CAER MAS RAPIDO
@@ -154,6 +177,7 @@ public class MovimientoAlryxEscenario : MonoBehaviour
     {
         transform.position = new Vector3(xInicial, yInicial, zInicial);
     }
+
 
     private void OnTriggerEnter(Collider coll)
     {
