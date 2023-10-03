@@ -7,5 +7,6 @@ public class CaidaVacio : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         FindObjectOfType<MovimientoAlryxEscenario>().SendMessage("RecolocarPersonaje");
+
     }
 }

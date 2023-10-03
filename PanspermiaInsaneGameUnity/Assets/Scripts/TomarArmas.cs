@@ -4,17 +4,38 @@ using UnityEngine;
 
 public class TomarArmas : MonoBehaviour
 {
-    public GameObject armaActivar;
-    public Animator animaciones;
-    public bool estoyarmado;
-    private void OnTriggerEnter(Collider other)
+    public GameObject[] armas;
+    public Animator animator;
+
+    private void Start()
     {
-        if (other.CompareTag("Player"))
-        {           
-            armaActivar.SetActive(true);
-            gameObject.SetActive(false);
-            animaciones.SetBool("Arma", true);
-            estoyarmado = true;
+        animator = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
+    }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Mouse2))
+        {
+            desactivarArmas();
         }
     }
+    public void activarArmas(int numero)
+    {
+        for (int i = 0; i < armas.Length; i++)
+        {
+            armas[i].SetActive(false);
+        }
+        armas[numero].SetActive(true);
+    }
+
+    public void desactivarArmas()
+    {
+        for (int i = 0; i < armas.Length; i++)
+        {
+            armas[i].SetActive(false);
+            animator.SetBool("Arma", false);
+
+        }
+    }
+
+
 }

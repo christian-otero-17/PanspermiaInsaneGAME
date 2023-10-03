@@ -9,6 +9,7 @@ TagManager:
   - Campo
   - Power
   - Arma
+  - PuntoInicial
   layers:
   - Default
   - TransparentFX

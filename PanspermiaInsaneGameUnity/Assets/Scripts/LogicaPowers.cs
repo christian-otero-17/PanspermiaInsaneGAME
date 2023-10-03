@@ -7,6 +7,7 @@ public class LogicaPowers : MonoBehaviour
     public bool destruirConCursor;
     public bool destruirAutomatico;
     public MovimientoAlryxEscenario movimientoAlryx;
+    public GameObject campoFuerza;
 
     public int tipo;
     //1 = Super Salto
@@ -14,7 +15,6 @@ public class LogicaPowers : MonoBehaviour
 
     void Start()
     {
-        movimientoAlryx = GameObject.FindGameObjectWithTag("Player").GetComponent<MovimientoAlryxEscenario>();
     }
 
     // Update is called once per frame
@@ -31,7 +31,7 @@ public class LogicaPowers : MonoBehaviour
                 movimientoAlryx.fuerzaSalto += 20;
                 break;
             case 2:
-               GameObject.FindGameObjectWithTag("Campo").SetActive(true);
+               campoFuerza.SetActive(true);
                 break;
 
             default:

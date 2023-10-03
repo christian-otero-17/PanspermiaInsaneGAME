@@ -1,34 +1,44 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.Rendering;
+using Random = UnityEngine.Random;
 
 public class MovimientoAlryxEscenario : MonoBehaviour
 {
     //CAIDA AL VACIO REINICIAR
 
     float xInicial, yInicial, zInicial;
+
     //DISPARO CON ARMAS
     public bool shooting;
+    public GameObject bala;
+    public GameObject firepoint;
 
     //AnimacionesArmas
-    public TomarArmas tomarArmas;
+    public ActivarArmas activararmas;
+
+    //GOLPEAR
+    public bool golpeando;
+    public int numGolpe;
 
     //Personaje Movimiento
     public float velocidadMovimiento = 5.0f;
     public float velocidadRotacion = 200.0f;
-    private Animator anim;
+    public Animator anim;
     public float x, y;
 
     //CORRER
     public int velCorrer;
 
     //Caida mas rapida
-    public int fuerzaExtra = 0;
+    public int fuerzaExtra;
 
     //Personaje Saltando
     public Rigidbody rb;
-    public float fuerzaSalto = 8f;
+    public int fuerzaSalto;
     public bool puedoSaltar;
     public float velocidadInicial;
     public float velocidadAgachado;
@@ -43,8 +53,13 @@ public class MovimientoAlryxEscenario : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //REINICIO DE POSICIÓN CON CAIDA AL VACIO
+        //REINICIO DE VALORES POR CADA MUERTE
 
+        fuerzaSalto = 10;
+        fuerzaExtra = 3;
+
+        //REINICIO DE POSICIÓN CON CAIDA AL VACIO
+        
         xInicial = transform.position.x;
         yInicial = transform.position.y;
         zInicial = transform.position.z;
@@ -57,6 +72,9 @@ public class MovimientoAlryxEscenario : MonoBehaviour
 
         velocidadInicial = velocidadMovimiento;
         velocidadAgachado = velocidadMovimiento * 0.5f;
+
+        activararmas = GameObject.FindGameObjectWithTag("Arma").GetComponent<ActivarArmas>();
+
     }
     void FixedUpdate()
     {
@@ -147,23 +165,38 @@ public class MovimientoAlryxEscenario : MonoBehaviour
         }
 
 
-        if(tomarArmas.estoyarmado == true)
+        if (anim.GetBool("Arma") == true)
         {
-            if (Input.GetKey(KeyCode.Mouse0))
-              {
+            if (Input.GetKeyDown(KeyCode.Mouse0))
+            {
                 anim.SetBool("Disparando", true);
+                Instantiate(bala, firepoint.transform.position, firepoint.transform.rotation);
             }
             else
             {
                 anim.SetBool("Disparando", false);
             }
         }
+        else
+        {
+         if (Input.GetKeyDown(KeyCode.Mouse0)) {
+
+            int randomNum = Random.Range(0, 3);
+            anim.SetInteger("NumGolpe", randomNum);
+            anim.SetBool("Golpeando", true);
+            } else
+        {
+            anim.SetBool("Golpeando", false);
+
+        }
+        }
+
+
+
     }
 
 
     //TERMINA UPDATE
-
-
     public void EstoyCayendo()
     {
         //CAER MAS RAPIDO
