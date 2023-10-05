@@ -18,11 +18,11 @@ public class BalaPlasma : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Destroy(this.gameObject, 4f);
     }
 
     private void OnCollisionEnter(Collision collision)
-    {
+    { 
         Destroy(Instantiate(efectoImpacto, transform.position, transform.rotation), 2.0f);
         Destroy(this.gameObject);
     }
