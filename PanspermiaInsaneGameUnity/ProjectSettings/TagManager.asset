@@ -10,6 +10,7 @@ TagManager:
   - Power
   - Arma
   - PuntoInicial
+  - Bala
   layers:
   - Default
   - TransparentFX

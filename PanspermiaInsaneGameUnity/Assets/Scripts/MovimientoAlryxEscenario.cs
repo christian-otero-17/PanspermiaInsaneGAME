@@ -17,6 +17,10 @@ public class MovimientoAlryxEscenario : MonoBehaviour
     public GameObject bala;
     public GameObject firepoint;
 
+    //SONIDO DISPARO
+    private AudioSource controlSonido;
+    public AudioClip sonidoDisparo;
+
     //AnimacionesArmas
     public ActivarArmas activararmas;
 
@@ -43,6 +47,11 @@ public class MovimientoAlryxEscenario : MonoBehaviour
     public float velocidadInicial;
     public float velocidadAgachado;
 
+    //Sonido Golpes
+    public AudioClip sonidoGolpe;
+    public AudioClip sonidoSalto;
+
+
     //CAMBIO DE COLLIDER AGACHADO
     public CapsuleCollider colParado;
     public CapsuleCollider colAgachado;
@@ -53,9 +62,12 @@ public class MovimientoAlryxEscenario : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        controlSonido = FindObjectOfType<AudioSource>();
+
         //REINICIO DE VALORES POR CADA MUERTE
 
-        fuerzaSalto = 10;
+        fuerzaSalto = 25;
         fuerzaExtra = 3;
 
         //REINICIO DE POSICIÓN CON CAIDA AL VACIO
@@ -91,6 +103,7 @@ public class MovimientoAlryxEscenario : MonoBehaviour
             if (y > 0)
             {
                 anim.SetBool("Correr", true);
+
             }
             else
             {
@@ -124,6 +137,8 @@ public class MovimientoAlryxEscenario : MonoBehaviour
             {
                 anim.SetBool("Salte", true);
                 rb.AddForce(new Vector3(0, fuerzaSalto, 0), ForceMode.Impulse);
+                controlSonido.PlayOneShot(sonidoSalto);
+
             }
 
             if (Input.GetKey(KeyCode.LeftAlt))
@@ -158,6 +173,7 @@ public class MovimientoAlryxEscenario : MonoBehaviour
                 
             }
             anim.SetBool("TocoSuelo", true);
+
         }
         else
         {
@@ -167,10 +183,12 @@ public class MovimientoAlryxEscenario : MonoBehaviour
 
         if (anim.GetBool("Arma") == true)
         {
+
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
                 anim.SetBool("Disparando", true);
                 Instantiate(bala, firepoint.transform.position, firepoint.transform.rotation);
+                controlSonido.PlayOneShot(sonidoDisparo);
             }
             else
             {
@@ -184,7 +202,10 @@ public class MovimientoAlryxEscenario : MonoBehaviour
             int randomNum = Random.Range(0, 3);
             anim.SetInteger("NumGolpe", randomNum);
             anim.SetBool("Golpeando", true);
-            } else
+            controlSonido.PlayOneShot(sonidoGolpe);
+
+            }
+            else
         {
             anim.SetBool("Golpeando", false);
 

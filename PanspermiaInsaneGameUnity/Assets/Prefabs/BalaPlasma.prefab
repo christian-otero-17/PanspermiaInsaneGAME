@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 9, y: 9, z: 9}
+  m_LocalScale: {x: 11, y: 11, z: 11}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7667928792753053726}
@@ -51,6 +51,7 @@ MonoBehaviour:
   speed: 40
   efectoImpacto: {fileID: 1329845292236604, guid: 9bba9cf244c53c5439505dfc96fdd11c,
     type: 3}
+  sonidoImpactoPlasma: {fileID: 8300000, guid: 544ed166f5f239043ac6d19833cce4b1, type: 3}
 --- !u!135 &8398074396259663615
 SphereCollider:
   m_ObjectHideFlags: 0

@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using UnityEngine;
 
 public class TomarArmas : MonoBehaviour
 {
     public GameObject[] armas;
     public Animator animator;
+    public GameObject[] balasArmas;
 
     private void Start()
     {
