@@ -30,6 +30,7 @@ public class ActivarArmas : MonoBehaviour
             animator.SetBool("Arma", true);
             tomarArmas.activarArmas(numeroArma);
             Destroy(gameObject);
+            tomarArmas.desactivarImagenArma(numeroArma);
         }
     }
 }

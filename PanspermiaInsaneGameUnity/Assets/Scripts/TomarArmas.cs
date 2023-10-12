@@ -7,7 +7,7 @@ public class TomarArmas : MonoBehaviour
 {
     public GameObject[] armas;
     public Animator animator;
-    public GameObject[] balasArmas;
+    public GameObject[] imagenesArmas;
 
     private void Start()
     {
@@ -25,8 +25,11 @@ public class TomarArmas : MonoBehaviour
         for (int i = 0; i < armas.Length; i++)
         {
             armas[i].SetActive(false);
+            imagenesArmas[i].SetActive(false);
+
         }
         armas[numero].SetActive(true);
+        imagenesArmas[numero].SetActive(true);
     }
 
     public void desactivarArmas()
@@ -34,10 +37,20 @@ public class TomarArmas : MonoBehaviour
         for (int i = 0; i < armas.Length; i++)
         {
             armas[i].SetActive(false);
+            imagenesArmas[i].SetActive(false);
             animator.SetBool("Arma", false);
 
         }
     }
 
+    public void desactivarImagenArma(int numero)
+    {
+        for (int i = 0; i < armas.Length; i++)
+        {
+            imagenesArmas[i].SetActive(false);
+
+        }
+        imagenesArmas[numero].SetActive(true);
+    }
 
 }

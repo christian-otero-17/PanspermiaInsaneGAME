@@ -7,6 +7,7 @@ public class ActivarPausa : MonoBehaviour
 {
     public bool pause;
     public GameObject pauseMenu;
+    public GameObject HUD;
 
     void Start()
     {
@@ -27,11 +28,14 @@ public class ActivarPausa : MonoBehaviour
     {
             pause = !pause;
             pauseMenu.SetActive(pause);
+            HUD.SetActive(false);
         if (pause)
         {
             Time.timeScale = 0f;
         } else
         {
+            HUD.SetActive(true);
+
             Time.timeScale = 1f;
         }
 
@@ -40,6 +44,8 @@ public class ActivarPausa : MonoBehaviour
     {
         Time.timeScale = 1f;
         pauseMenu.SetActive(false);
+        HUD.SetActive(true);
+
     }
 }
 

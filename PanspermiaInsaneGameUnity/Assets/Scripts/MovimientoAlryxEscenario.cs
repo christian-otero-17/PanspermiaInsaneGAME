@@ -23,6 +23,9 @@ public class MovimientoAlryxEscenario : MonoBehaviour
 
     //AnimacionesArmas
     public ActivarArmas activararmas;
+    public TomarArmas tomarArmas;
+    public int numeroArma;
+
 
     //GOLPEAR
     public bool golpeando;
@@ -184,11 +187,20 @@ public class MovimientoAlryxEscenario : MonoBehaviour
         if (anim.GetBool("Arma") == true)
         {
 
-            if (Input.GetKeyDown(KeyCode.Mouse0))
+            if (Input.GetKey(KeyCode.Mouse0))
             {
-                anim.SetBool("Disparando", true);
-                Instantiate(bala, firepoint.transform.position, firepoint.transform.rotation);
-                controlSonido.PlayOneShot(sonidoDisparo);
+                if (GameManager.Instace.armaMunicion > 0)
+                {
+                     GameManager.Instace.armaMunicion--;
+                     anim.SetBool("Disparando", true);
+                     Instantiate(bala, firepoint.transform.position, firepoint.transform.rotation);
+                     controlSonido.PlayOneShot(sonidoDisparo);
+                }
+                else if (GameManager.Instace.armaMunicion == 0)
+                {
+                    tomarArmas.desactivarArmas();
+                }
+               
             }
             else
             {
