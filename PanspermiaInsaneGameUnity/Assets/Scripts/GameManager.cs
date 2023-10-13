@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
 
     public static GameManager Instace { get; private set; }
 
-    public int armaMunicion = 20;
+    public int armaMunicion = 0;
 
     public int vidas = 5;
 

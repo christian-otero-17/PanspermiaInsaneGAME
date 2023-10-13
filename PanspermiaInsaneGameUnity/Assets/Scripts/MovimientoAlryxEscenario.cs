@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
 using Random = UnityEngine.Random;
@@ -14,7 +15,6 @@ public class MovimientoAlryxEscenario : MonoBehaviour
 
     //DISPARO CON ARMAS
     public bool shooting;
-    public GameObject bala;
     public GameObject firepoint;
 
     //SONIDO DISPARO
@@ -89,6 +89,7 @@ public class MovimientoAlryxEscenario : MonoBehaviour
         velocidadAgachado = velocidadMovimiento * 0.5f;
 
         activararmas = GameObject.FindGameObjectWithTag("Arma").GetComponent<ActivarArmas>();
+
 
     }
     void FixedUpdate()
@@ -191,37 +192,40 @@ public class MovimientoAlryxEscenario : MonoBehaviour
             {
                 if (GameManager.Instace.armaMunicion > 0)
                 {
-                     GameManager.Instace.armaMunicion--;
-                     anim.SetBool("Disparando", true);
-                     Instantiate(bala, firepoint.transform.position, firepoint.transform.rotation);
-                     controlSonido.PlayOneShot(sonidoDisparo);
+                    GameManager.Instace.armaMunicion--;
+                    anim.SetBool("Disparando", true);
+                    Instantiate(tomarArmas.balaActiva, firepoint.transform.position, firepoint.transform.rotation);
+                    controlSonido.PlayOneShot(tomarArmas.sonidoActivo);
                 }
-                else if (GameManager.Instace.armaMunicion == 0)
+                else 
                 {
                     tomarArmas.desactivarArmas();
+                    anim.SetBool("Disparando", false);
+
                 }
-               
             }
             else
             {
                 anim.SetBool("Disparando", false);
+
             }
         }
         else
         {
-         if (Input.GetKeyDown(KeyCode.Mouse0)) {
+            if (Input.GetKeyDown(KeyCode.Mouse0))
+            {
 
-            int randomNum = Random.Range(0, 3);
-            anim.SetInteger("NumGolpe", randomNum);
-            anim.SetBool("Golpeando", true);
-            controlSonido.PlayOneShot(sonidoGolpe);
+                int randomNum = Random.Range(0, 3);
+                anim.SetInteger("NumGolpe", randomNum);
+                anim.SetBool("Golpeando", true);
+                controlSonido.PlayOneShot(sonidoGolpe);
 
             }
             else
-        {
-            anim.SetBool("Golpeando", false);
+            {
+                anim.SetBool("Golpeando", false);
 
-        }
+            }
         }
 
 

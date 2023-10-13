@@ -10,6 +10,8 @@ public class BalaPlasma : MonoBehaviour
     public GameObject efectoImpacto;
     private AudioSource controlSonido;
     public AudioClip sonidoImpactoPlasma;
+    public AudioClip sonidoDisparoPlasma;
+
 
     void Start()
     {
