@@ -15,6 +15,8 @@ public class LogicaPowers : MonoBehaviour
 
     void Start()
     {
+        movimientoAlryx = GameObject.FindGameObjectWithTag("Player").GetComponent<MovimientoAlryxEscenario>();
+        campoFuerza = movimientoAlryx.CampoFuerza;
     }
 
     // Update is called once per frame

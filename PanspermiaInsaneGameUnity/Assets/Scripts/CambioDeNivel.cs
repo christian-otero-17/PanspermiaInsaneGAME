@@ -28,16 +28,22 @@ public class CambioDeNivel : MonoBehaviour
 
     public void ProbarCambioDeEscena()
     {
-        if (Input.GetMouseButtonDown(1))
+        if (SceneManager.GetActiveScene().buildIndex == 2 || SceneManager.GetActiveScene().buildIndex == 3 || SceneManager.GetActiveScene().buildIndex == 4)
         {
-            if(SceneManager.GetActiveScene().buildIndex == 2)
-            {
-                SceneManager.LoadScene(3);
-            }
-            else
+            if (Input.GetKey(KeyCode.Keypad1))
             {
                 SceneManager.LoadScene(2);
             }
+            else if (Input.GetKey(KeyCode.Keypad2))
+            {
+                SceneManager.LoadScene(3);
+            }
+            else if (Input.GetKey(KeyCode.Keypad3))
+            {
+                SceneManager.LoadScene(4);
+            }
         }
+
+
     }
 }
