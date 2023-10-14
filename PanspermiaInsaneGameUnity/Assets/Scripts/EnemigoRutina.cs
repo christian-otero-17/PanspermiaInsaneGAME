@@ -9,14 +9,16 @@ public class EnemigoRutina : MonoBehaviour
     public Animator anim;
     public Quaternion angulo;
     public float grado;
-
+    private Rigidbody rbEnemigo;
     public GameObject target;
-    public bool atacando; 
+    public bool atacando;
+    int contadorColisiones = 0;
 
     void Start()
     {
         anim = GetComponent<Animator>();
         target = GameObject.Find("Alryx1009");
+        rbEnemigo = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -89,9 +91,18 @@ public class EnemigoRutina : MonoBehaviour
 
     private void OnTriggerEnter(Collider coll)
     {
-        if (coll.CompareTag("Campo"))
+        if (coll.CompareTag("Bala") || coll.CompareTag("AlienGolpe"))
         {
-            print("*******ENEMIGO MUERTO *******");
+            contadorColisiones++;
+            print("*******ENEMIGO DAÑO *******");
+
+            if(contadorColisiones > 5)
+            {
+                print("*******ENEMIGO MUERTO *******");
+
+                Destroy(gameObject);
+            }
+            
         }
     }
 }
