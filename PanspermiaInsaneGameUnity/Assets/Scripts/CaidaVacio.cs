@@ -4,9 +4,18 @@ using UnityEngine;
 
 public class CaidaVacio : MonoBehaviour
 {
+
     private void OnTriggerEnter(Collider other)
+      
     {
-        FindObjectOfType<MovimientoAlryxEscenario>().SendMessage("RecolocarPersonaje");
+        if (other.gameObject.CompareTag("Player"))
+        {
+            GameManager.Instace.perderVida(1);
+            FindObjectOfType<MovimientoAlryxEscenario>().SendMessage("RecolocarPersonaje");
+
+
+        }
 
     }
 }
+ 

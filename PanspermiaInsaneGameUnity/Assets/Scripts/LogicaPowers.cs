@@ -30,10 +30,11 @@ public class LogicaPowers : MonoBehaviour
         switch (tipo)
         {
             case 1:
-                movimientoAlryx.fuerzaSalto += 20;
+                movimientoAlryx.fuerzaSalto += 15;
                 break;
             case 2:
                campoFuerza.SetActive(true);
+                GameManager.Instace.tiempo += 10;
                 break;
 
             default:

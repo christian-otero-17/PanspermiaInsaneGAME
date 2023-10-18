@@ -11,5 +11,7 @@ public class TomarPoder : MonoBehaviour
             other.GetComponent<LogicaPowers>().Efecto();
             Destroy(other.gameObject);
         }
+
+
     }
 }

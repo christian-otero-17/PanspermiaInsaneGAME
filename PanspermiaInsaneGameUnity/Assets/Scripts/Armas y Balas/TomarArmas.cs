@@ -31,8 +31,6 @@ public class TomarArmas : MonoBehaviour
             desactivarArmas();
 
         }
-
-
     }
 
     public void activarArmas(int numero)
@@ -47,7 +45,9 @@ public class TomarArmas : MonoBehaviour
         imagenesArmas[numero].SetActive(true);
         tipoBala[numero].SetActive(true);
         balaActiva = tipoBala[numero];
-        sonidoActivo = tipoSonidoDisparo[numero];   
+        sonidoActivo = tipoSonidoDisparo[numero];
+        GameManager.Instace.armaMunicion += 200;
+
 
 
     }
@@ -75,10 +75,10 @@ public class TomarArmas : MonoBehaviour
         }
         imagenesArmas[numero].SetActive(true);
     }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Arma"))
-            GameManager.Instace.armaMunicion += other.gameObject.GetComponent<BalasArma>().balas;
-    }
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.CompareTag("Arma"))
+    //        GameManager.Instace.armaMunicion += other.gameObject.GetComponent<BalasArma>().balas;
+    //}
 
 }

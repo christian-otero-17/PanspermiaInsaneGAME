@@ -11,6 +11,8 @@ TagManager:
   - Arma
   - PuntoInicial
   - Bala
+  - AlienGolpe
+  - partesNave
   layers:
   - Default
   - TransparentFX

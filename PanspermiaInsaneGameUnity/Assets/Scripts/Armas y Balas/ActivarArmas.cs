@@ -24,7 +24,7 @@ public class ActivarArmas : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player")
+            if (other.CompareTag("Player"))
         {   
             animator.SetBool("Arma", true);
             tomarArmas.activarArmas(numeroArma);

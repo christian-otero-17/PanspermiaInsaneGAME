@@ -2,17 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using UnityEngine.Rendering;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
     public Text municionTexto;
     public Text vidaTexto;
+    public Text partesTexto;
+    public Text tiempoTexto;
+    public TomarArmas tomararmas;
 
     public static GameManager Instace { get; private set; }
 
-    public int armaMunicion = 0;
-
-    public int vidas = 5;
+    public int armaMunicion;
+    public int partesNave = 0;
+    public int vidas = 2;
+    public float tiempo;
+    public float tiempoAux = 0.0f;
 
     public void Awake()
     {
@@ -24,5 +32,43 @@ public class GameManager : MonoBehaviour
     {
         municionTexto.text = armaMunicion.ToString();
         vidaTexto.text = vidas.ToString();
+        partesTexto.text = partesNave.ToString();
+        tiempoTexto.text = tiempo.ToString();
+    }
+
+    public void perderVida(int reducirVida)
+    {
+        vidas -= reducirVida;
+        tomararmas.desactivarArmas();
+        checaVida();
+    }
+    public void ganarVida(int subirVida)
+    {
+        vidas += subirVida;
+        checaVida();
+    }
+
+
+    public void tomarParte(int parteNavetomada)
+    {
+        partesNave += parteNavetomada;
+    }
+
+
+    //public  void timer()
+    //{
+    //    tiempo -= Time.deltaTime;
+
+    //    tiempoTexto.text = "" + tiempo.ToString("f1");
+
+    //}
+
+    public void checaVida()
+    {
+        if(vidas <= 0)
+        {
+           vidas = 2;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
     }
 }

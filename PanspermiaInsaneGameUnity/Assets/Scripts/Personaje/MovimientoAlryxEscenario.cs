@@ -12,6 +12,8 @@ public class MovimientoAlryxEscenario : MonoBehaviour
 
     //PODERES
     public GameObject CampoFuerza;
+    public bool tiempoCorre;
+
 
     //CAIDA AL VACIO REINICIAR
 
@@ -74,11 +76,11 @@ public class MovimientoAlryxEscenario : MonoBehaviour
 
         //REINICIO DE VALORES POR CADA MUERTE
 
-        fuerzaSalto = 25;
+        fuerzaSalto = 10;
         fuerzaExtra = 3;
 
         //REINICIO DE POSICIÓN CON CAIDA AL VACIO
-        
+
         xInicial = transform.position.x;
         yInicial = transform.position.y;
         zInicial = transform.position.z;
@@ -105,7 +107,7 @@ public class MovimientoAlryxEscenario : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKey(KeyCode.LeftShift)&& !estoyAgachado && puedoSaltar)
+        if (Input.GetKey(KeyCode.LeftShift) && !estoyAgachado && puedoSaltar)
         {
             velocidadMovimiento = velCorrer;
             if (y > 0)
@@ -124,7 +126,7 @@ public class MovimientoAlryxEscenario : MonoBehaviour
             if (estoyAgachado)
             {
                 velocidadMovimiento = velocidadAgachado;
-            }else if (puedoSaltar)
+            } else if (puedoSaltar)
             {
                 velocidadMovimiento = velocidadInicial;
             }
@@ -134,7 +136,7 @@ public class MovimientoAlryxEscenario : MonoBehaviour
         x = Input.GetAxis("Horizontal");
         y = Input.GetAxis("Vertical");
 
-        
+
 
         anim.SetFloat("VelX", x);
         anim.SetFloat("VelY", y);
@@ -152,7 +154,7 @@ public class MovimientoAlryxEscenario : MonoBehaviour
             if (Input.GetKey(KeyCode.LeftAlt))
             {
                 anim.SetBool("Agachado", true);
-               // velocidadMovimiento = velocidadAgachado;
+                // velocidadMovimiento = velocidadAgachado;
 
                 /////CAMBIO DE COLLIDER//////////
 
@@ -166,10 +168,10 @@ public class MovimientoAlryxEscenario : MonoBehaviour
             }
             else
             {
-                if(logicaCabeza.contadorDeColision <= 0)
+                if (logicaCabeza.contadorDeColision <= 0)
                 {
                     anim.SetBool("Agachado", false);
-                  //  velocidadMovimiento = velocidadInicial;
+                    //  velocidadMovimiento = velocidadInicial;
 
                     ////// CAMBIO COLLIDER //////
                     cabeza.SetActive(false);
@@ -178,7 +180,7 @@ public class MovimientoAlryxEscenario : MonoBehaviour
                     estoyAgachado = false;
 
                 }
-                
+
             }
             anim.SetBool("TocoSuelo", true);
 
@@ -202,7 +204,7 @@ public class MovimientoAlryxEscenario : MonoBehaviour
                     controlSonido.PlayOneShot(tomarArmas.sonidoActivo);
 
                 }
-                else 
+                else
                 {
                     tomarArmas.desactivarArmas();
                     anim.SetBool("Disparando", false);
@@ -233,8 +235,25 @@ public class MovimientoAlryxEscenario : MonoBehaviour
             }
         }
 
+        if (CampoFuerza.activeInHierarchy)
+        {
+            tiempoCorre = true;
 
+            if (tiempoCorre == true)
+            {
+                GameManager.Instace.tiempo -= Time.deltaTime;
 
+                GameManager.Instace.tiempoTexto.text = "" + GameManager.Instace.tiempo.ToString("f1");
+
+                if (GameManager.Instace.tiempo < 0)
+                {
+                    tiempoCorre = false;
+                    CampoFuerza.SetActive(false);
+                    GameManager.Instace.tiempo = 0;
+                }
+
+            }
+        }
     }
 
 
@@ -251,6 +270,7 @@ public class MovimientoAlryxEscenario : MonoBehaviour
     public void RecolocarPersonaje()
     {
         transform.position = new Vector3(xInicial, yInicial, zInicial);
+        fuerzaSalto = 10;
     }
 
 
@@ -260,5 +280,6 @@ public class MovimientoAlryxEscenario : MonoBehaviour
         {
             print("*******DAÑOOOOO*******");
         }
+
     }
 }
