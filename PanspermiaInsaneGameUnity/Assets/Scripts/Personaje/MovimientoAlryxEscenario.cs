@@ -16,8 +16,9 @@ public class MovimientoAlryxEscenario : MonoBehaviour
 
 
     //CAIDA AL VACIO REINICIAR
+    public CambioDeNivel cambionivel;
 
-    float xInicial, yInicial, zInicial;
+    public float xInicial, yInicial, zInicial;
 
     //DISPARO CON ARMAS
     public bool shooting;
@@ -76,14 +77,14 @@ public class MovimientoAlryxEscenario : MonoBehaviour
 
         //REINICIO DE VALORES POR CADA MUERTE
 
-        fuerzaSalto = 10;
+        fuerzaSalto = 15;
         fuerzaExtra = 3;
 
         //REINICIO DE POSICIÓN CON CAIDA AL VACIO
 
-        xInicial = transform.position.x;
-        yInicial = transform.position.y;
-        zInicial = transform.position.z;
+        //xInicial = transform.position.x;
+        //yInicial = transform.position.y;
+        //zInicial = transform.position.z;
 
         //////////////////////////////
 
@@ -254,6 +255,7 @@ public class MovimientoAlryxEscenario : MonoBehaviour
 
             }
         }
+
     }
 
 
@@ -269,8 +271,9 @@ public class MovimientoAlryxEscenario : MonoBehaviour
 
     public void RecolocarPersonaje()
     {
-        transform.position = new Vector3(xInicial, yInicial, zInicial);
-        fuerzaSalto = 10;
+        //transform.position = new Vector3(xInicial, yInicial, zInicial);
+        cambionivel.MoverAPuntoInicial();
+        fuerzaSalto = 15;
     }
 
 

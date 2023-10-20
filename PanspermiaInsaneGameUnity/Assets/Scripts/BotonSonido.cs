@@ -15,6 +15,6 @@ public class BotonSonido : MonoBehaviour
     }
     public void ClickSound()
     {
-        mySounds.PlayOneShot(click);
+        mySounds.PlayOneShot(click); 
     }
 }

@@ -11,7 +11,7 @@ public class CambioDeNivel : MonoBehaviour
     void Start()
     {
         personaje = GameObject.FindGameObjectWithTag("Player");
-        puntoInicial = GameObject.FindGameObjectWithTag("PuntoInicial").transform;
+      puntoInicial = GameObject.FindGameObjectWithTag("PuntoInicial").transform;
         MoverAPuntoInicial();
     }
 

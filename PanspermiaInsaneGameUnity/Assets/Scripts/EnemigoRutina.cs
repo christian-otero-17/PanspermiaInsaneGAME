@@ -29,7 +29,7 @@ public class EnemigoRutina : MonoBehaviour
 
     public void Comportamiento_Enemigo()
     {
-        if (Vector3.Distance(transform.position, target.transform.position) > 12)
+        if (Vector3.Distance(transform.position, target.transform.position) > 20)
         {
             anim.SetBool("Run", false);
             cronometro += 1 * Time.deltaTime;

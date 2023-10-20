@@ -13,14 +13,17 @@ public class GameManager : MonoBehaviour
     public Text partesTexto;
     public Text tiempoTexto;
     public TomarArmas tomararmas;
+    
 
     public static GameManager Instace { get; private set; }
 
     public int armaMunicion;
-    public int partesNave = 0;
+    public int partesNave;
     public int vidas = 2;
     public float tiempo;
     public float tiempoAux = 0.0f;
+ 
+
 
     public void Awake()
     {

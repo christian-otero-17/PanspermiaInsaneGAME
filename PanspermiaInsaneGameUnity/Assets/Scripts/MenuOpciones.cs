@@ -10,4 +10,10 @@ public class MenuOpciones : MonoBehaviour
     {
         audioMixer.SetFloat("Volumen", volumen);
     }
+
+    public void PantallaCompleta(bool pantallaCompleta)
+    {
+        Screen.fullScreen = pantallaCompleta;
+        Debug.Log("Pantalla Completa");
+    }
 }
