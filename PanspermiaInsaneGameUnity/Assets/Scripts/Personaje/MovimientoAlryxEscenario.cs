@@ -284,5 +284,10 @@ public class MovimientoAlryxEscenario : MonoBehaviour
             print("*******DAÑOOOOO*******");
         }
 
+        if(coll.CompareTag("fuegoMuerte"))
+        {
+            GameManager.Instace.FuegoMuerte();
+            RecolocarPersonaje();
+        }
     }
 }

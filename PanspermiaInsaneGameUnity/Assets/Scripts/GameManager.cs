@@ -38,6 +38,11 @@ public class GameManager : MonoBehaviour
         partesTexto.text = partesNave.ToString();
         tiempoTexto.text = tiempo.ToString();
     }
+    public void FuegoMuerte()
+    {
+        vidas = vidas - 1;
+        checaVida();
+    }
 
     public void perderVida(int reducirVida)
     {
@@ -70,7 +75,7 @@ public class GameManager : MonoBehaviour
     {
         if(vidas <= 0)
         {
-           vidas = 2;
+           vidas = 5;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }

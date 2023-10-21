@@ -15,26 +15,26 @@ public class SceneLoader : MonoBehaviour
 
     }
 
-    public void CargarProgreso()
-    {
-        int nivel = datos.nivelNumero;
+    //public void CargarProgreso()
+    //{
+    //    //int nivel = controldatos.GuardarDatos().
 
 
-        if(nivel ==  2)
-        {
-            SceneManager.LoadScene("Level1");
+    //    if(nivel ==  2)
+    //    {
+    //        SceneManager.LoadScene("Level1");
 
 
-        }
-        if (nivel == 3)
-        {
-            SceneManager.LoadScene("Level2");
+    //    }
+    //    if (nivel == 3)
+    //    {
+    //        SceneManager.LoadScene("Level2");
 
-        }
-        if (nivel == 4)
-        {
-            SceneManager.LoadScene("Level3");
+    //    }
+    //    if (nivel == 4)
+    //    {
+    //        SceneManager.LoadScene("Level3");
 
-        }
-    }
+    //    }
+    //}
 }
