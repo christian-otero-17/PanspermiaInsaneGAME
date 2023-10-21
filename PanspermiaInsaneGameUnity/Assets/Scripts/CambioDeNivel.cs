@@ -9,6 +9,7 @@ public class CambioDeNivel : MonoBehaviour
     public Transform puntoInicial;
     public GameObject personaje;
     public Transform bandera1;
+    public Transform bandera2;
 
     void Start()
     {
@@ -16,6 +17,7 @@ public class CambioDeNivel : MonoBehaviour
       puntoInicial = GameObject.FindGameObjectWithTag("PuntoInicial").transform;
         MoverAPuntoInicial();
         bandera1 = GameObject.FindGameObjectWithTag("bandera1").transform;
+        bandera2 = GameObject.FindGameObjectWithTag("bandera2").transform;
     }
 
     // Update is called once per frame
@@ -32,6 +34,11 @@ public class CambioDeNivel : MonoBehaviour
     public void MoverABandera1() {
         personaje.transform.position = bandera1.position;
 
+    }
+
+    public void MoverABandera2()
+    {
+        personaje.transform.position = bandera2.position;   
     }
     public void ProbarCambioDeEscena()
     {

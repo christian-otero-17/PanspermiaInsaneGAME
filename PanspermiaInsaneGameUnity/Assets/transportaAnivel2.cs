@@ -7,7 +7,7 @@ public class transportaAnivel2 : MonoBehaviour
 {
     private void OnTriggerEnter(Collider coll)
     {
-            if (coll.CompareTag("Player"))
+            if (coll.CompareTag("Player") && GameManager.Instace.partesNave == 1)
             {
                 SceneManager.LoadScene("Level2");
         }

@@ -11,7 +11,7 @@ public class SceneLoader : MonoBehaviour
    // public DatosJuego datos;
     public void Level1()
     {
-        SceneManager.LoadScene("Level1");
+        SceneManager.LoadScene("Controles");
 
     }
 

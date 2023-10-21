@@ -228,17 +228,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 28e18fe0835ff90499682411b5f15b59,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1095
+      value: -26.68
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 28e18fe0835ff90499682411b5f15b59,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 16.022
+      value: 21.340004
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 28e18fe0835ff90499682411b5f15b59,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1141.7
+      value: 137.83
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 28e18fe0835ff90499682411b5f15b59,
         type: 3}
@@ -280,6 +280,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: vidaITEM Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 8100320773420232829, guid: 28e18fe0835ff90499682411b5f15b59,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d2379ff621b03a54ca9e45ee5f4382a3, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

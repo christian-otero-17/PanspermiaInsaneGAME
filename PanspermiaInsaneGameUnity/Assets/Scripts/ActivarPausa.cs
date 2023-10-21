@@ -12,7 +12,6 @@ public class ActivarPausa : MonoBehaviour
 
     void Start()
     {
-
     }
 
     // Update is called once per frame
@@ -34,12 +33,16 @@ public class ActivarPausa : MonoBehaviour
         {
             Time.timeScale = 0f;
             noDispares = true;
+            Cursor.lockState = CursorLockMode.Confined;
 
-        } else
+
+        }
+        else
         {
             HUD.SetActive(true);
             Time.timeScale = 1f;
-            noDispares = false; 
+            noDispares = false;
+            
         }
 
     }
@@ -49,6 +52,7 @@ public class ActivarPausa : MonoBehaviour
         pauseMenu.SetActive(false);
         HUD.SetActive(true);
         noDispares = false;
+        Cursor.lockState = CursorLockMode.Locked;
 
     }
 }

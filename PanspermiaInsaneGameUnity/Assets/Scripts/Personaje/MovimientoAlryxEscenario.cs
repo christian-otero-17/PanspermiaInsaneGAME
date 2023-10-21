@@ -97,7 +97,6 @@ public class MovimientoAlryxEscenario : MonoBehaviour
 
         activararmas = GameObject.FindGameObjectWithTag("Arma").GetComponent<ActivarArmas>();
 
-
     }
     void FixedUpdate()
     {
@@ -262,6 +261,12 @@ public class MovimientoAlryxEscenario : MonoBehaviour
             cambionivel.MoverABandera1();
 
         }
+
+        if (Input.GetKeyDown(KeyCode.Keypad5))
+            {
+                cambionivel.MoverABandera2();
+
+            }
 
     }
 
