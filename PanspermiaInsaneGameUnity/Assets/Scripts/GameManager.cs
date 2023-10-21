@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
 
     public int armaMunicion;
     public int partesNave;
-    public int vidas = 2;
+    public int vidas = 10;
     public float tiempo;
     public float tiempoAux = 0.0f;
  

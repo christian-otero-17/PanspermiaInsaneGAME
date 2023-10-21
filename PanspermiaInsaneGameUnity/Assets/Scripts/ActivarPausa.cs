@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class ActivarPausa : MonoBehaviour
 {
     public bool pause;
+    public bool noDispares = false;
     public GameObject pauseMenu;
     public GameObject HUD;
 
@@ -32,11 +33,13 @@ public class ActivarPausa : MonoBehaviour
         if (pause)
         {
             Time.timeScale = 0f;
+            noDispares = true;
+
         } else
         {
             HUD.SetActive(true);
-
             Time.timeScale = 1f;
+            noDispares = false; 
         }
 
     }
@@ -45,6 +48,7 @@ public class ActivarPausa : MonoBehaviour
         Time.timeScale = 1f;
         pauseMenu.SetActive(false);
         HUD.SetActive(true);
+        noDispares = false;
 
     }
 }

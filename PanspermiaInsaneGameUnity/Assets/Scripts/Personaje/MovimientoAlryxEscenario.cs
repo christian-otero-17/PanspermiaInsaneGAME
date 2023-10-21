@@ -13,7 +13,7 @@ public class MovimientoAlryxEscenario : MonoBehaviour
     //PODERES
     public GameObject CampoFuerza;
     public bool tiempoCorre;
-
+    public ActivarPausa pausa;
 
     //CAIDA AL VACIO REINICIAR
     public CambioDeNivel cambionivel;
@@ -195,7 +195,7 @@ public class MovimientoAlryxEscenario : MonoBehaviour
         if (anim.GetBool("Arma") == true)
         {
 
-            if (Input.GetKey(KeyCode.Mouse0))
+            if (Input.GetKey(KeyCode.Mouse0) && pausa.noDispares == false)
             {
                 if (GameManager.Instace.armaMunicion > 0)
                 {
@@ -254,6 +254,13 @@ public class MovimientoAlryxEscenario : MonoBehaviour
                 }
 
             }
+        }
+
+
+        if (Input.GetKeyDown(KeyCode.Keypad4))
+        {
+            cambionivel.MoverABandera1();
+
         }
 
     }

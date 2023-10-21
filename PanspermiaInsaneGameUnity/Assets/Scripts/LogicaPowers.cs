@@ -34,7 +34,7 @@ public class LogicaPowers : MonoBehaviour
                 break;
             case 2:
                campoFuerza.SetActive(true);
-                GameManager.Instace.tiempo += 10;
+                GameManager.Instace.tiempo += 30;
                 break;
 
             default:
